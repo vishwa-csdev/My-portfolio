@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #0b0c10;
+    --bg-surface: #101219;
+    --accent-ice: #38bdf8;
+  }
+
+  body {
+    background-color: #0b0c10;
+    color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Precision Glow Utilities */
+.glow-border {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-border:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 20px -4px rgba(56, 189, 248, 0.15);
+}
+
+.glow-pill {
+  background: rgba(56, 189, 248, 0.06);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+}
+
+.glow-cursor {
+  display: inline-block;
+  width: 2.5px;
+  height: 1.1em;
+  background-color: #38bdf8;
+  box-shadow: 0 0 10px 2px rgba(56, 189, 248, 0.85);
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #090a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1d2232;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #282f45;
+}
