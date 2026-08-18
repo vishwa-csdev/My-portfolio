@@ -2,86 +2,114 @@ import { TechCategory } from '../types';
 
 export const techStackData: TechCategory[] = [
   {
-    title: 'Core Systems & Languages',
-    subtitle: 'Low-level performance, memory management, and high-level rapid algorithms',
+    title: 'AI / Machine Learning',
+    subtitle: 'Neural model development, loss function optimization, and scientific computing',
+    accent: 'indigo',
+    skills: [
+      {
+        name: 'Python',
+        level: 'Primary Language',
+        description: 'Core programming language for machine learning pipelines, dataset manipulation, mathematical modeling, and backend service integration.',
+        tags: ['Python 3', 'Data Structures', 'Scientific Computing', 'AsyncIO'],
+        accent: 'indigo'
+      },
+      {
+        name: 'PyTorch',
+        level: 'Framework',
+        description: 'Building custom neural architectures, tensor computations, automated gradient backpropagation, and deep learning experiments.',
+        tags: ['Deep Learning', 'Neural Networks', 'Tensors', 'Autograd'],
+        accent: 'indigo'
+      },
+      {
+        name: 'TensorFlow',
+        level: 'Framework',
+        description: 'Constructing machine learning models, neural training loops, Keras workflows, and model evaluation metrics for predictive intelligence.',
+        tags: ['Machine Learning', 'Keras', 'Model Pipelines', 'Evaluation'],
+        accent: 'indigo'
+      }
+    ]
+  },
+  {
+    title: 'Languages & Systems',
+    subtitle: 'Foundational programming languages spanning low-level performance to high-level web runtimes',
+    accent: 'amber',
     skills: [
       {
         name: 'C / C++',
-        level: 'Expert',
-        description: 'Modern C++ (C++17/20), STL, manual memory management, multithreading, SIMD vectorization, CMake build pipelines, and CUDA GPU kernels.',
-        tags: ['C++20', 'STL', 'Multithreading', 'Memory Mgmt', 'CMake']
+        level: 'Systems & Algorithms',
+        description: 'Writing fast, deterministic code with manual memory concepts, pointer arithmetic, data structures, and algorithmic computational efficiency.',
+        tags: ['C/C++', 'Memory Concepts', 'Algorithms', 'Data Structures'],
+        accent: 'amber'
       },
       {
-        name: 'Python',
-        level: 'Expert',
-        description: 'Core language for ML research and backend microservices. AsyncIO, Cython optimizations, NumPy vectorization, OOP design, and scripting.',
-        tags: ['AsyncIO', 'NumPy', 'OOP', 'Cython', 'Type Hints']
+        name: 'JavaScript (ES6+) & TypeScript',
+        level: 'Primary Web Stack',
+        description: 'Developing modern type-safe applications, asynchronous promise chains, DOM rendering, and modular architecture.',
+        tags: ['TypeScript', 'ES6+', 'Type Safety', 'Async/Await'],
+        accent: 'amber'
       }
     ]
   },
   {
-    title: 'AI / Machine Learning Stack',
-    subtitle: 'Deep neural networks, computer vision, transformers, and model inference',
+    title: 'Full-Stack & Web Engineering',
+    subtitle: 'Proven through shipping interactive dashboards, games, and web applications',
+    accent: 'cyan',
     skills: [
       {
-        name: 'PyTorch & TorchScript',
-        level: 'Advanced',
-        description: 'Custom neural network architectures, autograd, TensorBoard profiling, distributed training (DDP), and C++ LibTorch export.',
-        tags: ['Neural Nets', 'LibTorch', 'DDP', 'Model Opt']
+        name: 'React & Vite',
+        level: 'Frontend Architecture',
+        description: 'Building responsive single-page web applications with reactive state hooks, reusable component trees, and high-performance bundling.',
+        tags: ['React', 'Vite', 'Custom Hooks', 'Component Trees'],
+        accent: 'cyan'
       },
       {
-        name: 'TensorFlow & Scikit-Learn',
-        level: 'Advanced',
-        description: 'Classical ML pipelines (Random Forests, Gradient Boosting, SVMs), Keras custom loss functions, model evaluation, and cross-validation.',
-        tags: ['Scikit-Learn', 'Feature Eng', 'Keras', 'XGBoost']
+        name: 'Tailwind CSS & UI Systems',
+        level: 'Styling & Design',
+        description: 'Translating Figma designs into production code with responsive grid layouts, custom dark theme palettes, glassmorphism, and Framer Motion micro-animations.',
+        tags: ['Tailwind CSS', 'Figma to Code', 'Framer Motion', 'Responsive UI'],
+        accent: 'cyan'
       },
       {
-        name: 'OpenCV & Computer Vision',
-        level: 'Advanced',
-        description: 'Image filtering, object detection pipelines, feature extraction (SIFT, ORB), matrix transformations, and video stream processing.',
-        tags: ['Image Processing', 'YOLO', 'Feature Matching']
+        name: 'REST APIs & Web Data Integration',
+        level: 'API Layer',
+        description: 'Connecting client interfaces to third-party RESTful APIs (Formula 1 telemetry, GitHub REST API) with resilient error handling and live updates.',
+        tags: ['REST APIs', 'Fetch API', 'JSON', 'Dynamic Sync'],
+        accent: 'cyan'
       },
       {
-        name: 'Hugging Face & LLMs',
-        level: 'Intermediate',
-        description: 'Transformers library, tokenizer pipelines, fine-tuning LLMs with LoRA/PEFT, vector databases (Pinecone/Chroma), and prompt engineering.',
-        tags: ['Transformers', 'LoRA', 'Vector DB', 'RAG']
+        name: 'Web Audio API & Browser Features',
+        level: 'Browser Capabilities',
+        description: 'Leveraging modern browser Web Audio playback, progressive audio streaming, and local storage state persistence.',
+        tags: ['Web Audio API', 'LocalStorage', 'Audio Playback'],
+        accent: 'cyan'
       }
     ]
   },
   {
-    title: 'Full-Stack & Systems Infrastructure',
-    subtitle: 'Scalable web applications, modern APIs, reactive UIs, and containerized deployment',
+    title: 'Automation & Workflow Tooling',
+    subtitle: 'Workflow automation, version control, and Linux environment orchestration',
+    accent: 'emerald',
     skills: [
       {
-        name: 'React & Next.js',
-        level: 'Advanced',
-        description: 'Component architecture, SSR/SSG patterns, dynamic state management, custom hooks, and high-performance DOM rendering.',
-        tags: ['React 18', 'TypeScript', 'Next.js', 'State Mgmt']
+        name: 'n8n Workflow Automation',
+        level: 'Automation & Pipelines',
+        description: 'Designing automated multi-step workflows, webhook triggers, API integrations, and AI agent pipeline orchestration to connect disparate services.',
+        tags: ['n8n', 'Webhooks', 'Workflow Automation', 'AI Agent Orchestration'],
+        accent: 'emerald'
       },
       {
-        name: 'Tailwind CSS & Design Systems',
-        level: 'Advanced',
-        description: 'Responsive layout grids, custom dark/light theme systems, micro-interactions with Framer Motion, and CSS design tokens.',
-        tags: ['Tailwind CSS', 'Framer Motion', 'Responsive', 'UX']
+        name: 'Git & GitHub Collaboration',
+        level: 'Version Control',
+        description: 'Branch management, pull requests, automated repository synchronization, and open-source project governance.',
+        tags: ['Git', 'GitHub', 'Version Control', 'GitHub Actions'],
+        accent: 'emerald'
       },
       {
-        name: 'FastAPI & Node.js',
-        level: 'Advanced',
-        description: 'Asynchronous RESTful APIs, OpenAPI documentation, WebSockets, JWT authentication, and high-throughput microservices.',
-        tags: ['FastAPI', 'Node.js', 'WebSockets', 'REST APIs']
-      },
-      {
-        name: 'PostgreSQL & Databases',
-        level: 'Intermediate',
-        description: 'Relational database schema design, index optimization, complex SQL queries, and ORM integration (Prisma, SQLAlchemy).',
-        tags: ['PostgreSQL', 'SQLAlchemy', 'Prisma', 'Indexing']
-      },
-      {
-        name: 'Docker & Git DevOps',
-        level: 'Intermediate',
-        description: 'Multi-stage Docker builds, container orchestration, CI/CD GitHub Actions workflows, Git branch strategies, and Linux environment administration.',
-        tags: ['Docker', 'GitHub Actions', 'Linux', 'CI/CD']
+        name: 'Fedora Linux',
+        level: 'Daily Driver Environment',
+        description: 'Primary operating system and development environment, command line proficiency, shell scripting, and package management.',
+        tags: ['Fedora Linux', 'Bash', 'CLI', 'Dev Environment'],
+        accent: 'emerald'
       }
     ]
   }

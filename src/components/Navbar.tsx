@@ -15,45 +15,45 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Tech Stack', href: '#tech' },
+    { name: 'Stack', href: '#tech' },
     { name: 'Projects', href: '#projects' },
-    { name: 'Achievements', href: '#achievements' },
+    { name: 'Milestones', href: '#achievements' },
     { name: 'Resume', href: '#resume' },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[#090a0f]/85 backdrop-blur-md border-b border-white/10 py-3 shadow-lg'
-          : 'bg-transparent py-5'
-      }`}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand Logo / Profile Avatar */}
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 pt-4 pointer-events-none">
+      <div
+        className={`max-w-6xl mx-auto rounded-2xl transition-all duration-300 pointer-events-auto px-4 sm:px-6 py-3 flex items-center justify-between ${
+          scrolled
+            ? 'bg-[#06070c]/90 backdrop-blur-xl border border-white/[0.1] shadow-[0_8px_32px_rgba(0,0,0,0.85)]'
+            : 'bg-[#06070c]/60 backdrop-blur-md border border-white/[0.06]'
+        }`}
+      >
+        {/* Brand Logo / Avatar */}
         <a href="#" className="group flex items-center gap-3">
-          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-white/20 shadow-md group-hover:border-[#38bdf8]/60 group-hover:shadow-[0_0_12px_rgba(56,189,248,0.4)] transition-all bg-[#141722]">
+          <div className="relative w-8 h-8 rounded-full overflow-hidden border border-white/20 shadow-md group-hover:border-[#38bdf8]/60 transition-all bg-[#0f1118]">
             <img
               src="/profile.jpg"
-              alt="Vishwa Bharath Singh Avatar"
+              alt="Vishwa Bharath Singh"
               className="w-full h-full object-cover object-top"
             />
           </div>
           <div className="flex flex-col">
-            <span className="font-display font-bold text-white text-sm tracking-wide group-hover:text-[#38bdf8] transition-colors">
+            <span className="font-display font-bold text-white text-sm tracking-tight group-hover:text-[#38bdf8] transition-colors">
               Vishwa Bharath Singh
             </span>
             <span className="text-[10px] font-mono text-slate-400">AI/ML & Full-Stack</span>
           </div>
         </a>
 
-        {/* Status Pill (Center) */}
-        <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#121520] border border-white/10 text-xs text-slate-300">
+        {/* Live Status Pill with Multi-Accent Glow */}
+        <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-[#0b0d16] border border-white/[0.08] text-xs">
           <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#38bdf8] opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#38bdf8]"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34d399] opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34d399]"></span>
           </span>
-          <span className="font-mono text-[11px] text-slate-300">Available for Opportunities</span>
+          <span className="font-mono text-[11px] text-slate-300">Open to Opportunities</span>
         </div>
 
         {/* Desktop Navigation Links */}
@@ -62,7 +62,7 @@ export const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-xs font-medium text-slate-300 hover:text-[#38bdf8] transition-colors tracking-wider uppercase"
+              className="text-xs font-mono text-slate-300 hover:text-[#38bdf8] transition-colors tracking-wider uppercase"
             >
               {link.name}
             </a>
@@ -70,12 +70,12 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* Action Buttons & Social Links */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-2.5">
           <a
             href="https://github.com/vishwa-csdev"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors"
+            className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/[0.06] transition-colors border border-transparent hover:border-white/10"
             title="GitHub Profile"
           >
             <Github className="w-4 h-4" />
@@ -84,14 +84,14 @@ export const Navbar: React.FC = () => {
             href="https://www.linkedin.com/in/vishwa-bharath-singh-37552137b"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors"
+            className="p-2 rounded-xl text-slate-400 hover:text-[#38bdf8] hover:bg-white/[0.06] transition-colors border border-transparent hover:border-white/10"
             title="LinkedIn Profile"
           >
             <Linkedin className="w-4 h-4" />
           </a>
           <a
             href="#resume"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-[#38bdf8] font-mono text-xs font-medium hover:bg-[#38bdf8]/20 hover:border-[#38bdf8]/50 transition-all hover:shadow-[0_0_15px_rgba(56,189,248,0.2)]"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#38bdf8]/10 border border-[#38bdf8]/30 text-[#38bdf8] font-mono text-xs font-medium hover:bg-[#38bdf8]/20 hover:border-[#38bdf8]/50 transition-all hover:shadow-[0_0_15px_rgba(56,189,248,0.25)]"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>
@@ -101,42 +101,51 @@ export const Navbar: React.FC = () => {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 text-slate-400 hover:text-white"
+          className="md:hidden p-2 text-slate-400 hover:text-white rounded-lg hover:bg-white/[0.06]"
           aria-label="Toggle Navigation Menu"
         >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0d0f15] border-b border-white/10 px-6 py-6 flex flex-col gap-4">
+        <div className="md:hidden mt-2 max-w-6xl mx-auto rounded-2xl bg-[#06070c]/95 backdrop-blur-xl border border-white/[0.1] p-5 flex flex-col gap-3 shadow-2xl pointer-events-auto">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="text-sm font-medium text-slate-200 hover:text-[#38bdf8] py-1"
+              className="text-sm font-medium text-slate-200 hover:text-[#38bdf8] py-1.5 px-2 rounded-lg hover:bg-white/[0.04]"
             >
               {link.name}
             </a>
           ))}
-          <div className="flex items-center gap-4 pt-4 border-t border-white/10">
+          <div className="flex items-center justify-between pt-3 border-t border-white/[0.08] mt-1">
+            <div className="flex items-center gap-3">
+              <a
+                href="https://github.com/vishwa-csdev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-[#38bdf8] p-1.5 rounded-lg bg-white/[0.04]"
+              >
+                <Github className="w-3.5 h-3.5" /> GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/vishwa-bharath-singh-37552137b"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-[#38bdf8] p-1.5 rounded-lg bg-white/[0.04]"
+              >
+                <Linkedin className="w-3.5 h-3.5" /> LinkedIn
+              </a>
+            </div>
             <a
-              href="https://github.com/vishwa-csdev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs text-slate-300 hover:text-[#38bdf8]"
+              href="#resume"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-[#38bdf8]/15 text-[#38bdf8] font-mono text-xs font-medium"
             >
-              <Github className="w-4 h-4" /> GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/vishwa-bharath-singh-37552137b"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-xs text-slate-300 hover:text-[#38bdf8]"
-            >
-              <Linkedin className="w-4 h-4" /> LinkedIn
+              <FileText className="w-3.5 h-3.5" /> Resume
             </a>
           </div>
         </div>

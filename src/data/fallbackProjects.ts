@@ -2,93 +2,63 @@ import { CuratedProject } from '../types';
 
 export const fallbackProjects: CuratedProject[] = [
   {
-    id: 'ai-inference-engine',
-    title: 'High-Performance C++ AI Inference Engine',
-    category: 'AI/ML',
-    description: 'Custom low-latency neural inference engine engineered in C++ for edge deployment, featuring memory-mapped matrix operations and optimized CUDA kernel execution.',
-    highlights: [
-      'Sub-5ms latency for deep convolutional layer operations',
-      'SIMD vectorization & zero-copy memory allocation',
-      'Integrated PyTorch C++ LibTorch bindings for model weight export'
-    ],
-    tech: ['C/C++', 'CUDA', 'PyTorch', 'CMake', 'OpenMP'],
-    githubUrl: 'https://github.com/vishwa-csdev/ai-inference-engine',
-    liveUrl: 'https://github.com/vishwa-csdev',
-    isFeatured: true,
-    metrics: [
-      { label: 'Inference Speed', value: '4.2ms' },
-      { label: 'Memory Footprint', value: '< 120MB' },
-      { label: 'Throughput', value: '240 FPS' }
-    ]
-  },
-  {
-    id: 'vision-llm-pipeline',
-    title: 'Multi-Modal Vision & Language Pipeline',
-    category: 'AI/ML',
-    description: 'End-to-end multi-modal AI architecture combining vision encoders with LLM fine-tuning for real-time document analysis and scene understanding.',
-    highlights: [
-      'Fine-tuned Transformer models with LoRA/QLoRA parameter efficiency',
-      'Asynchronous Python backend with FastAPI and Redis task queue',
-      'Streamed token responses with Server-Sent Events (SSE)'
-    ],
-    tech: ['Python', 'PyTorch', 'Hugging Face', 'FastAPI', 'Redis', 'OpenCV'],
-    githubUrl: 'https://github.com/vishwa-csdev/vision-llm-pipeline',
-    isFeatured: true,
-    metrics: [
-      { label: 'Accuracy', value: '98.4%' },
-      { label: 'Token Stream', value: '65 tok/s' }
-    ]
-  },
-  {
-    id: 'fullstack-mlops-dashboard',
-    title: 'Enterprise MLOps & Model Telemetry Platform',
+    id: 'f1-app',
+    title: 'F1 QuickStats & Race Center',
     category: 'Full-Stack',
-    description: 'Full-stack Web dashboard for real-time model monitoring, concept drift detection, latency telemetry, and automated deployment pipelines.',
+    accent: 'rose',
+    description: 'An interactive Formula 1 enthusiast web dashboard providing instant driver standings, constructor points, race center results, and detail pages for drivers and teams.',
     highlights: [
-      'Real-time WebSocket streaming of loss curves and inference metrics',
-      'Responsive dark-theme UI with interactive chart canvas and filtering',
-      'Docker containerized deployment with PostgreSQL metric storage'
+      'Driver and constructor leaderboard tracking with live season statistics',
+      'Race center dashboard featuring recent race results and schedules',
+      'Engineered with React, Vite, and dedicated client-side API helper hooks'
     ],
-    tech: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS', 'Python', 'PostgreSQL', 'Docker'],
-    githubUrl: 'https://github.com/vishwa-csdev/fullstack-mlops-dashboard',
-    liveUrl: 'https://github.com/vishwa-csdev',
+    tech: ['React', 'JavaScript', 'Vite', 'REST APIs', 'CSS3'],
+    githubUrl: 'https://github.com/vishwa-csdev/F1-app',
+    liveUrl: 'https://github.com/vishwa-csdev/F1-app',
     isFeatured: true,
     metrics: [
-      { label: 'Uptime', value: '99.9%' },
-      { label: 'Telemetry Rate', value: '10k req/s' }
+      { label: 'Stack', value: 'React + Vite' },
+      { label: 'Domain', value: 'F1 Telemetry' }
+    ]
+  },
+  {
+    id: 'heardle-web-game',
+    title: 'Heardle Web Game',
+    category: 'Interactive Game',
+    accent: 'emerald',
+    description: 'An interactive daily music guessing game where players identify songs in as few attempts as possible from short progressive audio snippets.',
+    highlights: [
+      'Browser audio playback with progressive snippet duration unlock controls',
+      'Interactive autocomplete search and attempt verification mechanics',
+      'Local state persistence for player statistics, streaks, and scores'
+    ],
+    tech: ['JavaScript', 'Web Audio API', 'HTML5', 'CSS3'],
+    githubUrl: 'https://github.com/vishwa-csdev/Heardle-web-game',
+    liveUrl: 'https://github.com/vishwa-csdev/Heardle-web-game',
+    isFeatured: true,
+    metrics: [
+      { label: 'Category', value: 'Web Game' },
+      { label: 'Engine', value: 'Web Audio' }
     ]
   },
   {
     id: 'my-portfolio',
-    title: 'Luxury Minimalist Portfolio & GitHub Sync',
+    title: 'Obsidian Developer Portfolio',
     category: 'Full-Stack',
-    description: 'Bespoke dark-theme personal developer platform with precise glow light accents, live GitHub REST API integration, and mathematical ML metric interactive widgets.',
+    accent: 'cyan',
+    description: 'Personal multi-accent dark portfolio engineered with React, TypeScript, and Tailwind CSS, featuring live GitHub REST API integration to automatically sync owned repositories.',
     highlights: [
-      'Tailwind CSS & Framer Motion tailored micro-animations',
-      'Live dynamic repository fetch with graceful offline fallbacks',
-      'Accessible, zero-light wash luxury aesthetic design'
+      'Multi-accent obsidian aesthetic with hairline glass styling',
+      'Live GitHub REST API integration filtering out forks in real-time',
+      'Clean modular TypeScript architecture with responsive Framer Motion animations'
     ],
-    tech: ['TypeScript', 'React', 'Vite', 'Tailwind CSS', 'Framer Motion'],
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite', 'Framer Motion'],
     githubUrl: 'https://github.com/vishwa-csdev/My-portfolio',
     liveUrl: 'https://github.com/vishwa-csdev/My-portfolio',
-    isFeatured: false
-  },
-  {
-    id: 'cuda-parallel-raytracer',
-    title: 'CUDA Parallel Raytracing & Physics Engine',
-    category: 'High-Performance Systems',
-    description: 'Parallel acceleration rendering engine leveraging C++20 and CUDA GPU threads to compute real-time ray-triangle intersections and light bouncing.',
-    highlights: [
-      'BVH (Bounding Volume Hierarchy) spatial acceleration tree in C++',
-      'Massively parallelized pixel shading with 1000+ CUDA threads',
-      'Interactive GLFW window with real-time camera controls'
-    ],
-    tech: ['C/C++', 'CUDA', 'GLSL', 'CMake', 'C++20'],
-    githubUrl: 'https://github.com/vishwa-csdev/cuda-parallel-raytracer',
-    isFeatured: false,
+    isFeatured: true,
     metrics: [
-      { label: 'Frame Rate', value: '144 FPS' },
-      { label: 'Parallel Rays', value: '2.1M/sec' }
+      { label: 'Design', value: 'Award-Winning' },
+      { label: 'Sync', value: 'GitHub API' }
     ]
   }
 ];

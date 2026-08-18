@@ -1,181 +1,174 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { GlowCard } from './ui/GlowCard';
 import { Badge } from './ui/Badge';
-import { Cpu, Play, RefreshCw, Zap } from 'lucide-react';
+import { Brain, Code2, Cpu, Workflow, Sparkles } from 'lucide-react';
 
 export const About: React.FC = () => {
-  // State for interactive ML Tensor / Loss simulation widget
-  const [epoch, setEpoch] = useState(24);
-  const [loss, setLoss] = useState(0.0421);
-  const [accuracy, setAccuracy] = useState(98.74);
-  const [throughput, setThroughput] = useState(480);
-  const [isSimulating, setIsSimulating] = useState(false);
-
-  const runSimulation = () => {
-    if (isSimulating) return;
-    setIsSimulating(true);
-    let step = 0;
-    const interval = setInterval(() => {
-      step++;
-      setEpoch((prev) => prev + 1);
-      setLoss((prev) => Math.max(0.012, +(prev * 0.94).toFixed(4)));
-      setAccuracy((prev) => Math.min(99.85, +(prev + 0.12).toFixed(2)));
-      setThroughput(() => Math.floor(450 + Math.random() * 80));
-
-      if (step >= 8) {
-        clearInterval(interval);
-        setIsSimulating(false);
-      }
-    }, 250);
-  };
-
-  const resetSimulation = () => {
-    setEpoch(24);
-    setLoss(0.0421);
-    setAccuracy(98.74);
-    setThroughput(480);
-  };
-
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/5">
-      <div className="flex flex-col md:flex-row gap-12 items-start">
-        {/* Left Column: Bio & Philosophy */}
-        <div className="flex-1 space-y-6">
-          <div className="inline-flex items-center gap-2">
-            <span className="h-px w-8 bg-[#38bdf8]" />
-            <span className="font-mono text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">
-              01 // About & Focus
-            </span>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border border-white/15 shadow-xl flex-shrink-0 bg-[#101219]">
-              <img
-                src="/profile.jpg"
-                alt="Vishwa Bharath Singh Profile"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white leading-tight">
-              Bridging High-Performance C/C++ Systems & Modern AI Engineering.
-            </h2>
-          </div>
-
-          <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            <p>
-              I am an <strong className="text-white font-medium">AI/ML Engineer</strong> and <strong className="text-white font-medium">Full-Stack Developer</strong> driven by a passion for algorithmic efficiency and robust software design. My foundation is built on deep low-level mastery in <code className="text-[#38bdf8] font-mono text-xs px-1.5 py-0.5 rounded bg-[#151926]">C/C++</code> and rapid ML iteration in <code className="text-[#38bdf8] font-mono text-xs px-1.5 py-0.5 rounded bg-[#151926]">Python</code>.
-            </p>
-            <p>
-              I thrive on solving end-to-end technical challenges: training deep neural network architectures in PyTorch, accelerating low-latency inference pipelines with CUDA and memory-mapped primitives, and crafting sleek, production-ready full-stack applications.
-            </p>
-            <p>
-              Rather than building cookie-cutter web pages or generic wrappers, I focus on system reliability, clean software abstraction, deterministic compute performance, and intuitive developer experiences.
-            </p>
-          </div>
-
-          {/* Pillars Badges */}
-          <div className="pt-2 flex flex-wrap gap-2">
-            <Badge variant="accent">Low-Latency Compute</Badge>
-            <Badge variant="mono">Memory Optimization</Badge>
-            <Badge variant="mono">Distributed ML Training</Badge>
-            <Badge variant="mono">Full-Stack Next.js / FastAPI</Badge>
-          </div>
+    <section id="about" className="py-24 px-4 sm:px-6 max-w-6xl mx-auto border-t border-white/[0.06]">
+      {/* Header */}
+      <div className="space-y-3 mb-12">
+        <div className="inline-flex items-center gap-2">
+          <span className="h-px w-8 bg-[#38bdf8]" />
+          <span className="font-mono text-xs font-semibold text-[#38bdf8] uppercase tracking-widest">
+            01 // Engineering Philosophy
+          </span>
         </div>
+        <h2 className="font-display text-3xl sm:text-4xl font-bold text-white">
+          Building Products End-to-End.
+        </h2>
+        <p className="text-slate-400 text-sm sm:text-base max-w-2xl">
+          From the machine learning model doing the work underneath, to the API and interactive frontend.
+        </p>
+      </div>
 
-        {/* Right Column: Interactive ML Metrics Telemetry Widget */}
-        <div className="w-full md:w-[440px] flex-shrink-0">
-          <GlowCard className="border-white/10 bg-[#0e1017]">
-            {/* Header */}
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
-              <div className="flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-[#38bdf8]" />
-                <span className="font-mono text-xs font-semibold text-white">
-                  Model Optimization Sandbox
-                </span>
-              </div>
-              <Badge variant="accent" size="sm">
-                C++ LibTorch / CUDA
-              </Badge>
-            </div>
-
-            {/* Simulated Live Loss & Metric Display */}
-            <div className="space-y-3 font-mono text-xs">
-              <div className="p-3 rounded-lg bg-[#141724] border border-white/5 flex items-center justify-between">
-                <span className="text-slate-400">Current Epoch:</span>
-                <span className="text-white font-semibold">{epoch} / 100</span>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-lg bg-[#141724] border border-white/5">
-                  <div className="text-slate-400 text-[11px] mb-1">Loss (Cross-Entropy)</div>
-                  <div className="text-[#38bdf8] text-lg font-bold">{loss.toFixed(4)}</div>
+      {/* Multi-Accent Bento Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+        {/* Main Narrative Card (7 cols) */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="lg:col-span-7 flex flex-col justify-between"
+        >
+          <GlowCard accent="cyan" className="h-full flex flex-col justify-between space-y-6">
+            <div className="space-y-5">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#0e111d] border border-white/[0.1] flex items-center justify-center text-[#38bdf8]">
+                  <Sparkles className="w-6 h-6" />
                 </div>
-
-                <div className="p-3 rounded-lg bg-[#141724] border border-white/5">
-                  <div className="text-slate-400 text-[11px] mb-1">Top-1 Accuracy</div>
-                  <div className="text-emerald-400 text-lg font-bold">{accuracy.toFixed(2)}%</div>
+                <div>
+                  <h3 className="font-display text-xl font-bold text-white">
+                    Vishwa Bharath Singh
+                  </h3>
+                  <p className="font-mono text-xs text-[#38bdf8]">
+                    B.Tech AI & ML • Full-Stack Developer
+                  </p>
                 </div>
               </div>
 
-              <div className="p-3 rounded-lg bg-[#141724] border border-white/5 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <Zap className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="text-slate-400">Inference Speed:</span>
-                </div>
-                <span className="text-white font-semibold">{throughput} samples/sec</span>
-              </div>
-
-              {/* Loss Curve Visual Graphic */}
-              <div className="pt-2">
-                <div className="flex justify-between text-[10px] text-slate-400 mb-1">
-                  <span>Training Loss Curve</span>
-                  <span className="text-[#38bdf8]">Converged (Step {epoch})</span>
-                </div>
-                <div className="h-16 w-full bg-[#141724] rounded-lg border border-white/5 p-2 flex items-end justify-between gap-1 overflow-hidden">
-                  {[0.8, 0.65, 0.52, 0.4, 0.31, 0.22, 0.15, 0.1, 0.07, 0.05, 0.045, loss].map((val, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="bg-[#38bdf8]/70 hover:bg-[#38bdf8] rounded-t-sm transition-all"
-                      style={{
-                        width: '7%',
-                        height: `${Math.max(10, (1 - val) * 100)}%`
-                      }}
-                      title={`Step ${idx}: Loss ${val}`}
-                    />
-                  ))}
-                </div>
+              <div className="space-y-3.5 text-slate-300 text-sm leading-relaxed font-sans">
+                <p>
+                  I build products end-to-end — from the API and data model to the reactive user interface, with an ML model usually handling the core logic underneath.
+                </p>
+                <p>
+                  Currently pursuing a <strong className="text-white font-medium">B.Tech in Artificial Intelligence & Machine Learning</strong>, I focus heavily on applied deep learning with <code className="text-[#a5b4fc] font-mono text-xs px-1.5 py-0.5 rounded bg-[#101322]">Python</code>, <code className="text-[#a5b4fc] font-mono text-xs px-1.5 py-0.5 rounded bg-[#101322]">PyTorch</code>, and <code className="text-[#a5b4fc] font-mono text-xs px-1.5 py-0.5 rounded bg-[#101322]">TensorFlow</code>.
+                </p>
+                <p>
+                  Beyond machine learning, I engineer full-stack web applications with <code className="text-[#7dd3fc] font-mono text-xs px-1.5 py-0.5 rounded bg-[#0d1424]">React & TypeScript</code>, build low-level algorithmic foundations in <code className="text-[#fcd34d] font-mono text-xs px-1.5 py-0.5 rounded bg-[#1f1a10]">C/C++</code>, and orchestrate automated workflow pipelines using <code className="text-[#6ee7b7] font-mono text-xs px-1.5 py-0.5 rounded bg-[#0d1e18]">n8n</code> on my daily driver, <strong className="text-white font-medium">Fedora Linux</strong>.
+                </p>
               </div>
             </div>
 
-            {/* Widget Action Controls */}
-            <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-              <button
-                onClick={runSimulation}
-                disabled={isSimulating}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#38bdf8]/15 border border-[#38bdf8]/40 text-[#38bdf8] font-mono text-xs hover:bg-[#38bdf8]/25 transition-all disabled:opacity-50"
-              >
-                {isSimulating ? (
-                  <>
-                    <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-                    <span>Optimizing...</span>
-                  </>
-                ) : (
-                  <>
-                    <Play className="w-3.5 h-3.5 fill-current" />
-                    <span>Trigger Epoch Step</span>
-                  </>
-                )}
-              </button>
-
-              <button
-                onClick={resetSimulation}
-                className="text-xs font-mono text-slate-400 hover:text-white transition-colors"
-              >
-                Reset
-              </button>
+            {/* Quick Multi-Accent Tech Pills */}
+            <div className="pt-4 border-t border-white/[0.06] flex flex-wrap gap-2">
+              <Badge variant="accent" accent="indigo">Python & PyTorch</Badge>
+              <Badge variant="accent" accent="cyan">React & TypeScript</Badge>
+              <Badge variant="accent" accent="amber">C / C++ Systems</Badge>
+              <Badge variant="accent" accent="emerald">n8n Automation</Badge>
             </div>
           </GlowCard>
+        </motion.div>
+
+        {/* 4 Asymmetric Multi-Accent Bento Tiles (5 cols) */}
+        <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+          {/* Tile 1: AI / Deep Learning (Indigo) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
+            <GlowCard accent="indigo" className="p-4 sm:p-5">
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-xl bg-[#818cf8]/15 border border-[#818cf8]/30 flex items-center justify-center text-[#818cf8] flex-shrink-0">
+                  <Brain className="w-4 h-4" />
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="font-display text-sm font-bold text-white">
+                    Applied AI & ML
+                  </h4>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    Neural model architecture, loss optimization, and prediction in PyTorch and TensorFlow.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
+          </motion.div>
+
+          {/* Tile 2: Full-Stack React (Cyan) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.2 }}
+          >
+            <GlowCard accent="cyan" className="p-4 sm:p-5">
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-xl bg-[#38bdf8]/15 border border-[#38bdf8]/30 flex items-center justify-center text-[#38bdf8] flex-shrink-0">
+                  <Code2 className="w-4 h-4" />
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="font-display text-sm font-bold text-white">
+                    Full-Stack Web
+                  </h4>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    Interactive single-page apps, REST APIs, and responsive design systems with React and Vite.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
+          </motion.div>
+
+          {/* Tile 3: C/C++ Systems (Amber) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+          >
+            <GlowCard accent="amber" className="p-4 sm:p-5">
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-xl bg-[#fbbf24]/15 border border-[#fbbf24]/30 flex items-center justify-center text-[#fbbf24] flex-shrink-0">
+                  <Cpu className="w-4 h-4" />
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="font-display text-sm font-bold text-white">
+                    C / C++ & Algorithms
+                  </h4>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    Low-level memory awareness, data structures, and algorithmic computational efficiency.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
+          </motion.div>
+
+          {/* Tile 4: n8n Automation & Fedora (Emerald) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.4 }}
+          >
+            <GlowCard accent="emerald" className="p-4 sm:p-5">
+              <div className="flex items-start gap-3.5">
+                <div className="w-9 h-9 rounded-xl bg-[#34d399]/15 border border-[#34d399]/30 flex items-center justify-center text-[#34d399] flex-shrink-0">
+                  <Workflow className="w-4 h-4" />
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="font-display text-sm font-bold text-white">
+                    n8n Automation & Linux
+                  </h4>
+                  <p className="text-slate-400 text-xs leading-relaxed">
+                    Connecting services with webhook pipelines, automated workflows, and Fedora Linux tooling.
+                  </p>
+                </div>
+              </div>
+            </GlowCard>
+          </motion.div>
         </div>
       </div>
     </section>
